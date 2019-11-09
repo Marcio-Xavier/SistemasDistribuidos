@@ -1,3 +1,9 @@
 ﻿/RestApiSD/.vs/*
 /RestApiSD/bin/*
 /RestApiSD/obj/Debug/*
+/RestApiSD/packages/*
+/RestApiSD_Backup/.vs/*
+/RestApiSD_Backup/bin/*
+/RestApiSD_Backup/obj/Debug/*
+/RestApiSD_Backup/packages/*
+/Web/web/node_modules/*
