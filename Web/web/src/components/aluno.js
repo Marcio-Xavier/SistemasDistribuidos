@@ -2,28 +2,28 @@ import React, { Component } from "react";
 import Request from "superagent";
 import _ from "lodash";
 
-class Professor extends Component {
+class Aluno extends Component {
   constructor() {
     super();
     this.state = {};
   }
 
   componentWillMount() {
-    var url = "https://localhost:44357/Professor/Get";
+    var url = "https://localhost:44331/Aluno/Get";
     Request.get(url).then(response => {
       this.setState({
-        professores: response.body
+        alunos: response.body
       });
     });
   }
 
   render() {
-    var professores = _.map(this.state.professores, professor => {
+    var alunos = _.map(this.state.alunos, aluno => {
       return (
-        <tr key={professor.id}>
-          <td>{professor.id}</td>
-          <td>{professor.nome}</td>
-          <td>{professor.nascimento}</td>
+        <tr key={aluno.id}>
+          <td>{aluno.id}</td>
+          <td>{aluno.nome}</td>
+          <td>{aluno.curso}</td>
         </tr>
       );
     });
@@ -43,14 +43,14 @@ class Professor extends Component {
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nome</th>
-              <th scope="col">Nascimento</th>
+              <th scope="col">Curso</th>
             </tr>
           </thead>
-          <tbody>{professores}</tbody>
+          <tbody>{alunos}</tbody>
         </table>
       </React.Fragment>
     );
   }
 }
 
-export default Professor;
+export default Aluno;

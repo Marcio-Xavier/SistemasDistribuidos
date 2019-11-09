@@ -8,14 +8,14 @@ namespace RestApiSD.Models
     [DataContract]
     public class Professor
     {
-        [DataMember(Name="id")]
+        [DataMember(Name = "id")]
         public int id { get; set; }
 
-        [DataMember(Name="nome")]
+        [DataMember(Name = "nome")]
         public string nome { get; set; }
 
-        [DataMember(Name="nascimento")]
-        public DateTime nascimento { get; set; }
+        [DataMember(Name = "nascimento")]
+        public string nascimento { get; set; }
     }
 
     public class RetornaProfessor
@@ -24,9 +24,9 @@ namespace RestApiSD.Models
         {
             var lista = new List<Professor>()
             {
-                new Professor { id = 1, nascimento = DateTime.Now.AddYears(-40), nome = "Vandeir Topzera" },
-                new Professor { id = 2, nascimento = DateTime.Now.AddYears(-60), nome = "Marco Miquejonson" },
-                new Professor { id = 3, nascimento = DateTime.Now.AddYears(-70), nome = "Mendeleck Binário" }
+                new Professor { id = 1, nascimento = DateTime.Now.AddYears(-40).ToShortDateString(), nome = "Vandeir Topzera" },
+                new Professor { id = 2, nascimento = DateTime.Now.AddYears(-60).ToShortDateString(), nome = "Marco Miquejonson" },
+                new Professor { id = 3, nascimento = DateTime.Now.AddYears(-70).ToShortDateString(), nome = "Mendeleck Binário" }
             };
 
             return lista;

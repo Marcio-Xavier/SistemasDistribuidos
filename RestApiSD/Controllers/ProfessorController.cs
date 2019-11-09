@@ -1,21 +1,22 @@
 ﻿using RestApiSD.Models;
-using System.Collections.Generic;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace RestApiSD.Controllers
 {
-    public class ProfessorController : ApiController
+    public class ProfessorController : Controller
     {
         // GET: api/Professor
-        public List<Professor> Get()
+        [HttpGet]
+        public JsonResult Get()
         {
-            return new RetornaProfessor().Lista();
+            return Json(new RetornaProfessor().Lista(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: api/Professor/id
-        public Professor Get(int id)
+        [HttpGet]
+        public JsonResult GetById(int id)
         {
-            return new RetornaProfessor().Objeto(id);
+            return Json(new RetornaProfessor().Objeto(id), JsonRequestBehavior.AllowGet);
         }
     }
 }
