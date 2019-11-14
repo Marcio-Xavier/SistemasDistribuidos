@@ -7,8 +7,7 @@ function App() {
     <div className="container">
       <br />
       <br />
-      <Professor />
-      <Aluno />
+      <Professor /> 
     </div>
   );
 }

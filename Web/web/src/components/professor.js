@@ -14,14 +14,16 @@ class Professor extends Component {
     Request.get(url).then(response => {
       this.setState({
         professores: response.body
-      });
-    }).catch(err => {
+      })
+    });
+	
+	if (this.state.professores == null){
 		Request.get(urlBackup).then(response => {
 			this.setState({
 				professores: response.body
-			});
-		})
-	});
+			})
+		});	
+	}
   }
 
   render() {
