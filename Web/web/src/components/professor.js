@@ -10,11 +10,18 @@ class Professor extends Component {
 
   componentWillMount() {
     var url = "https://localhost:44357/Professor/Get";
+	var urlBackup = "https://localhost:44331/Professor/Get"
     Request.get(url).then(response => {
       this.setState({
         professores: response.body
       });
-    });
+    }).catch(err => {
+		Request.get(urlBackup).then(response => {
+			this.setState({
+				professores: response.body
+			});
+		})
+	});
   }
 
   render() {
