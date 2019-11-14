@@ -17,7 +17,7 @@ class Professor extends Component {
       })
     });
 	
-	if (this.state.professores == null){
+	if (this.state.professores == null || isEmpty(this.state.professores)){
 		Request.get(urlBackup).then(response => {
 			this.setState({
 				professores: response.body
