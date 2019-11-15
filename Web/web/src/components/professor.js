@@ -10,20 +10,26 @@ class Professor extends Component {
 
   componentWillMount() {
     var url = "https://localhost:44357/Professor/Get";
-	var urlBackup = "https://localhost:44331/Professor/Get"
-    Request.get(url).then(response => {
-      this.setState({
-        professores: response.body
+    var urlBackup = "https://localhost:44331/Professor/Get";
+
+    Request.get(url)
+      .timeout({
+        response: 3000
       })
-    });
-	
-	if (this.state.professores == null || isEmpty(this.state.professores)){
-		Request.get(urlBackup).then(response => {
-			this.setState({
-				professores: response.body
-			})
-		});	
-	}
+      .then(
+        response => {
+          this.setState({
+            professores: response.body
+          });
+        },
+        () => {
+          Request.get(urlBackup).then(response => {
+            this.setState({
+              professores: response.body
+            });
+          });
+        }
+      );
   }
 
   render() {

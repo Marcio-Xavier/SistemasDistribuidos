@@ -1,7 +1,7 @@
-﻿using RestApiSD.Models;
+﻿using RestApiSD_Backup.Models;
 using System.Web.Mvc;
 
-namespace RestApiSD.Controllers
+namespace RestApiSD_Backup.Controllers
 {
     public class ProfessorController : Controller
     {
